@@ -113,7 +113,7 @@ def main():
 
             # try to convert dob into dd/mm/yyyy format; on failure just use whatever powerschool supplied
             try:
-                dob = datetime.datetime.strptime(row['Dob'], '%d-%b-%y').strftime('%d/%m/%Y')
+                dob = datetime.datetime.strptime(row['Dob'], '%d-%b-%y').strftime('%d-%m-%Y')
             except Exception as e:
                 dob = row['Dob']
 
