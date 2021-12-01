@@ -155,9 +155,14 @@ def main():
 
         # consolodate tags into a string
         output_dict[s_number]['Tags'] = ', '.join(output_dict[s_number]['Tags'])
-
-
-
+        
+        # kludge to remove @ from username
+        try:
+            username = output_dict[s_number]['Emailstudent'].split('@')[0]
+        except Exception:
+            username = output_dict[s_number]['Emailstudent']
+        
+        output_dict[s_number]['Emailstudent'] = username
 
 
     with open(output_file, 'w') as outfile:
@@ -179,12 +184,5 @@ def main():
 
 if __name__ == '__main__':
     main()
-
-
-
-
-
-
-
 
 
